@@ -1,0 +1,22 @@
+{
+  "name": "etd-ingest",
+  "version": "0.0.1",
+  "description": "Ingestor for ICS209 data into a database.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R list"
+  },
+  "repository": "",
+  "author": "Jim Wharton",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "mocha": "~1.10.0",
+    "expect.js": "~0.2.0",
+    "underscore": "~1.4.4",
+    "mysql": "~2.0.0-alpha8"
+  }
+}
