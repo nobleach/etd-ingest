@@ -5,12 +5,16 @@ describe("EventIdGenerator Suite", function() {
 
   beforeEach(function() {
     eventIdGenerator = require('../lib/EventIdGenerator.js');
-    validId = eventIdGenerator.generateId("NM", 32.28431, -92.09, "14-MAY-13");
+    validId = eventIdGenerator.generateId("NM", 32.28451, -92.09, "14-MAY-13");
     validIdWithIsoDate = ("NM", 32.889, -107.810, '2013-06-07')
   });
 
   it("should create valid ID", function() {
-    expect(validId).to.be("NM3228409209020130514");
+    expect(validId).to.be("NM3228509209020130514");
+  });
+
+  it("should be able to handle numbers without decimals", function() {
+    expect(eventIdGenerator.generateId("NM", 32, -92, "14-MAY-13")).to.be("NM3200009200020130514");
   });
 
   it("should be 21 characters long", function() {

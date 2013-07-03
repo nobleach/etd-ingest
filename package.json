@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -R list"
+    "test": "mocha -R spec"
   },
   "repository": "",
   "author": "Jim Wharton",
