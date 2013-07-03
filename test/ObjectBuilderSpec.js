@@ -26,15 +26,15 @@ describe("Build an object from array while fixing dates and creating an event id
     'Extreme',
     '5590600' ]
   var test_object = {
-    event_id: 'NM3288810780920130607',
+    event_id: 'NM3288910781020130607',
     incident_id: 'NM-GNF-000230',
     incident_name: 'SILVER',
     part_of_complex: null,
     incident_type: 'WF',
     active_incident: 0,
     ig_date: '2013-06-07',
-    ig_lat: '32.888',
-    ig_long: '-107.809',
+    ig_lat: '32.889',
+    ig_long: '-107.810',
     area_burned: 24800,
     percent_contained: 5,
     expected_containment_date: null,
