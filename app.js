@@ -6,6 +6,8 @@ var _ = require('underscore')
 , arrayBuilder = require('./lib/ArrayBuilder')
 , objectBuilder = require('./lib/ObjectBuilder');
 
+var Sequelize = require("sequelize");
+var sequelize = new Sequelize('etd', 'etduser', 'etdpass')
 var Incident = sequelize.import(__dirname + "/models/Incident");
 
 downloader.downloadString("http://fam.nwcg.gov/fam-web/hist_209/get_rsac_209_1", function(report) {
@@ -20,11 +22,16 @@ downloader.downloadString("http://fam.nwcg.gov/fam-web/hist_209/get_rsac_209_1",
 
   _.each(allIncidents, function(incident) {
     objectBuilder.buildIncident(incident, function(incidentObj) {
-      console.log(incidentObj);
+      // console.log(incidentObj);
+      Incident.create(incidentObj).success(function(incident) {
+        console.log('Created ' + incident.event_id);
+      });
     });
   });
 
 });
+
+// Incident.sync();
 
 
 

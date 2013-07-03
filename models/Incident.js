@@ -1,14 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define("Incident", {
-    rsac_id: DataTypes.STRING,
+  return sequelize.define("incident", {
+    event_id: DataTypes.STRING,
     incident_id: DataTypes.STRING,
     incident_name: DataTypes.STRING,
     part_of_complex: DataTypes.BOOLEAN,
     incident_type: DataTypes.STRING,
     active_incident: DataTypes.BOOLEAN,
     ig_date: DataTypes.DATE,
-    ig_lat: DataTypes.FLOAT,
-    ig_long: DataTypes.FLOAT,
+    ig_lat: DataTypes.STRING,
+    ig_long: DataTypes.STRING,
     area_burned: DataTypes.INTEGER,
     percent_contained: DataTypes.INTEGER,
     expected_containment_date: DataTypes.DATE,

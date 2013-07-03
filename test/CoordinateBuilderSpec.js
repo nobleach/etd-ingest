@@ -7,9 +7,16 @@ describe("Coordinate Builder Suite", function() {
     coordinateBuilder = require('../lib/CoordinateBuilder.js');
   });
 
-  it("should truncate any coordinate to 3 significant figures", function() {
-    expect(coordinateBuilder.truncateFloat(32.888889)).to.be(32.888);
-    expect(coordinateBuilder.truncateFloat(-107.809722)).to.be(-107.809);
+  it("should round a coordinate to 3 significant figures", function() {
+    expect(coordinateBuilder.roundAndPadFloat(32.8885)).to.be('32.889');
+  });
+
+  it("should handle negative numbers", function() {
+    expect(coordinateBuilder.roundAndPadFloat(-107.809722)).to.be('-107.810');
+  });
+
+  it("should handle numbers with no decimals at all", function() {
+    expect(coordinateBuilder.roundAndPadFloat(32)).to.be('32.000');
   });
 
 });
