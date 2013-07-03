@@ -6,7 +6,6 @@ describe("EventIdGenerator Suite", function() {
   beforeEach(function() {
     eventIdGenerator = require('../lib/EventIdGenerator.js');
     validId = eventIdGenerator.generateId("NM", 32.28451, -92.09, "14-MAY-13");
-    validIdWithIsoDate = ("NM", 32.889, -107.810, '2013-06-07')
   });
 
   it("should create valid ID", function() {

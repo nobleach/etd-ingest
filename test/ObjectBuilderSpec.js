@@ -26,7 +26,7 @@ describe("Build an object from array while fixing dates and creating an event id
     'Extreme',
     '5590600' ]
   var test_object = {
-    rsac_id: 'NM3288810780920130607',
+    event_id: 'NM3288810780920130607',
     incident_id: 'NM-GNF-000230',
     incident_name: 'SILVER',
     part_of_complex: null,
@@ -45,8 +45,8 @@ describe("Build an object from array while fixing dates and creating an event id
     ig_usfs_region: 'Gila National Forest',
     fregion: 3,
     gacc: null,
-    city: 'Hanover',
-    state: 'NM',
+    // city: 'Hanover',
+    // state: 'NM',
     report_date: '2013-06-18',
     comment: null,
     fuels: 'Highly varied fuels ranging from dry mixed conifer at the highest elevations to ponderosa pine, Pinyon-Juniper and interior chaparral dominate the lower elevations. Fuel loading is high due to lack of fire disturbance in past century.',
