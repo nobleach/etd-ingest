@@ -47,7 +47,6 @@ describe("Build an object from array while fixing dates and creating an event id
     gacc: null,
     city: 'Hanover',
     state: 'NM',
-    next_pass: null,
     report_date: '2013-06-18',
     comment: null,
     fuels: 'Highly varied fuels ranging from dry mixed conifer at the highest elevations to ponderosa pine, Pinyon-Juniper and interior chaparral dominate the lower elevations. Fuel loading is high due to lack of fire disturbance in past century.',
