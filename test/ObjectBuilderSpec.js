@@ -1,6 +1,6 @@
 var expect = require('expect.js')
 
-describe("Build an object from array while fixing dates and creating an event id", function() {
+describe("ObjectBuilder Suite", function() {
   var objectBuilder;
   var test_array =[ 'Silver',
     'NM-GNF-000230',
@@ -45,8 +45,6 @@ describe("Build an object from array while fixing dates and creating an event id
     ig_usfs_region: 'Gila National Forest',
     fregion: 3,
     gacc: null,
-    // city: 'Hanover',
-    // state: 'NM',
     report_date: '2013-06-18',
     comment: null,
     fuels: 'Highly varied fuels ranging from dry mixed conifer at the highest elevations to ponderosa pine, Pinyon-Juniper and interior chaparral dominate the lower elevations. Fuel loading is high due to lack of fire disturbance in past century.',
@@ -55,11 +53,8 @@ describe("Build an object from array while fixing dates and creating an event id
     which_complex: null,
     path1: 34,
     row1: 37,
-    path2: null,
-    row2: null,
     srcdb: 'ics209',
     added_to_fod: 'FALSE'
-
   }
 
   beforeEach(function() {
@@ -73,7 +68,4 @@ describe("Build an object from array while fixing dates and creating an event id
     });
   });
 
-  it("shouldn't have an empty ig_date propery", function() {
-
-  });
 });

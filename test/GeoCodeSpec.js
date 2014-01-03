@@ -6,11 +6,10 @@ describe('Geocode suite', function() {
     geoCode = require('../lib/GeoCode.js');
   });
 
-  it("should return an object containing city and state", function(done) {
-    geoCode.getLocation(34.711, -98.800, function(result) {
+  it("should take a lat/lng and return an object containing path/row and state abbreviation", function(done) {
+    geoCode.getPathRowState(38.003, -114.010, function(result) {
       done();
-      // console.log(result);
-      expect(result).to.eql({ city: 'Indiahoma', state: 'OK' });
+      expect(result).to.eql({ path: 39, row: 34, state_abbr: 'UT'});
     });
   });
 

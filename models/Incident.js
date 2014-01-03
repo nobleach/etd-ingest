@@ -29,9 +29,8 @@ module.exports = function(sequelize, DataTypes) {
     which_complex: DataTypes.STRING,
     path1: DataTypes.INTEGER,
     row1: DataTypes.INTEGER,
-    path2: DataTypes.INTEGER,
-    row2: DataTypes.INTEGER,
     srcdb: DataTypes.STRING,
-    added_to_fod: DataTypes.STRING
+    added_to_fod: DataTypes.STRING,
+    above_mapping_threshold: DataTypes.INTEGER
   })
 }
