@@ -19,8 +19,6 @@ module.exports = function(sequelize, DataTypes) {
     ig_usfs_region: DataTypes.STRING,
     fregion: DataTypes.INTEGER,
     gacc: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
     report_date: DataTypes.DATE,
     comment: DataTypes.TEXT,
     fuels: DataTypes.TEXT,

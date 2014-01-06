@@ -54,7 +54,8 @@ describe("ObjectBuilder Suite", function() {
     path1: 34,
     row1: 37,
     srcdb: 'ics209',
-    added_to_fod: 'FALSE'
+    added_to_fod: 'FALSE',
+    above_mapping_threshold: 1
   }
 
   beforeEach(function() {
