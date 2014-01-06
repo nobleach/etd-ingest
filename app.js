@@ -4,7 +4,8 @@ var _ = require('underscore')
 , eventIdGenerator = require('./lib/EventIdGenerator')
 , stringNormalizer = require('./lib/StringNormalizer')
 , arrayBuilder = require('./lib/ArrayBuilder')
-, objectBuilder = require('./lib/ObjectBuilder');
+, objectBuilder = require('./lib/ObjectBuilder')
+, logger = require('./log');
 
 var Sequelize = require("sequelize");
 var sequelize = new Sequelize('rsacfod', 'rsacfod', 'rsacfodadmin')
@@ -24,7 +25,7 @@ downloader.downloadString("http://fam.nwcg.gov/fam-web/hist_209/get_rsac_209_1",
     objectBuilder.buildIncident(incident, function(incidentObj) {
       // console.log(incidentObj);
       Incident.create(incidentObj).success(function(incident) {
-        console.log('Created ' + incident.event_id);
+        logger.info('Created ' + incident.event_id);
       });
     });
   });
