@@ -7,8 +7,8 @@ var _ = require('underscore')
 , objectBuilder = require('./lib/ObjectBuilder');
 
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize('etd', 'etduser', 'etdpass')
-var Incident = sequelize.import(__dirname + "/models/Incident");
+var sequelize = new Sequelize('rsacfod', 'rsacfod', 'rsacfodadmin')
+var Incident = sequelize.import(__dirname + "/models/Import");
 
 downloader.downloadString("http://fam.nwcg.gov/fam-web/hist_209/get_rsac_209_1", function(report) {
   var allIncidents = arrayBuilder.divideIncidents(report);
