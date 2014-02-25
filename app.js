@@ -8,11 +8,17 @@ var _ = require('underscore')
 , objectBuilder = require('./lib/ObjectBuilder')
 , logger = require('./log');
 
+if (process.env.NODE_ENV !== 'production'){
+  require('longjohn');
+}
+
 var Sequelize = require("sequelize");
 var sequelize = new Sequelize('rsacfod', 'rsacfod', 'rsacfodadmin')
 var Incident = sequelize.import(__dirname + "/models/Import");
+var token;
 
-login.getToken(function(token) {
+login.getToken(function(data) {
+  token = JSON.parse(data).token;
   console.log(token);
 });
 // downloader.downloadString("", function(report) {
