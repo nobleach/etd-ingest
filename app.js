@@ -19,7 +19,12 @@ var token;
 
 login.getToken(function(data) {
   token = JSON.parse(data).token;
-  console.log(token);
+  var url = 'https://irwint.doi.gov/arcgis/rest/services/Irwin/MapServer/exts/Irwin/GetUpdates?fromDateTime=';
+
+  url += '&toDateTime='; 
+  downloader.getUpdates(url, function(report) {
+
+  });
 });
 // downloader.downloadString("", function(report) {
 //   console.log(report);
