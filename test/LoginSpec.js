@@ -1,4 +1,4 @@
-var expect = require('expect.js');
+var expect = require('chai').expect;
 describe("Login Suite", function() {
   var login;
 
@@ -11,7 +11,14 @@ describe("Login Suite", function() {
       console.log(token);
       var len = token.length;
       expect(len).not.to.be(0);
-    })
+    });
     done();
   });
+
+  it("should not return an error", function(done) {
+    login.getToken(function(token) {
+      expect(token).to.not.contain('error');
+    });
+    done();
+  })
 });
