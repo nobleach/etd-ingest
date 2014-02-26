@@ -20,10 +20,14 @@ var token;
 login.getToken(function(data) {
   token = JSON.parse(data).token;
   var url = 'https://irwint.doi.gov/arcgis/rest/services/Irwin/MapServer/exts/Irwin/GetUpdates?fromDateTime=';
-
+  url += dateParser.getDateTime(dateParser.subtractDays(dateParser.getTimeAsMoment(), 1)); 
   url += '&toDateTime='; 
+  url += dateParser.getDateTime(dateParser.getTimeAsMoment());
+  url += '&token=';
+  url += token;
+  url += '&f=json';
   downloader.getUpdates(url, function(report) {
-
+    console.log(report);
   });
 });
 // downloader.downloadString("", function(report) {
