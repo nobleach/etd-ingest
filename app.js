@@ -1,12 +1,12 @@
 var _ = require('underscore')
-, login = require('./lib/Login')
-, downloader = require('./lib/Downloader')
-, dateParser = require('./lib/DateParser')
-, eventIdGenerator = require('./lib/EventIdGenerator')
-, stringNormalizer = require('./lib/StringNormalizer')
-, arrayBuilder = require('./lib/ArrayBuilder')
-, objectBuilder = require('./lib/ObjectBuilder')
-, logger = require('./log');
+  , login = require('./lib/Login')
+  , downloader = require('./lib/Downloader')
+  , dateParser = require('./lib/DateParser')
+  , eventIdGenerator = require('./lib/EventIdGenerator')
+  , stringNormalizer = require('./lib/StringNormalizer')
+  , arrayBuilder = require('./lib/ArrayBuilder')
+  , objectBuilder = require('./lib/ObjectBuilder')
+  , logger = require('./log');
 
 if (process.env.NODE_ENV !== 'production'){
   require('longjohn');
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production'){
 
 var Sequelize = require("sequelize");
 var sequelize = new Sequelize('rsacfod', 'rsacfod', 'rsacfodadmin')
-var Incident = sequelize.import(__dirname + "/models/Import");
+var Incident = sequelize.import(__dirname + "/models/Irwin");
 var token;
 
 login.getToken(function(data) {
@@ -27,30 +27,17 @@ login.getToken(function(data) {
   url += token;
   url += '&f=json';
   downloader.getUpdates(url, function(report) {
-    console.log(report);
+    var incidentList = JSON.parse(report);
+    _.each(incidentList.incidents, function(incident) {
+      objectBuilder.buildIncident(incident, function(incidentObj) {
+        // console.log(incidentObj);
+        Incident.create(incidentObj).success(function(incident) {
+          logger.info('Created ' + incident.event_id);
+        });
+      });
+    });
   });
 });
-// downloader.downloadString("", function(report) {
-//   console.log(report);
-//   var allIncidents = arrayBuilder.divideIncidents(report);
-//
-//   var incidentsLength = allIncidents.length;
-//   for(var i=0; i<incidentsLength; i++) {
-//     objectBuilder.buildIncident(allIncidents[i], function(incident) {
-//       console.log(incident);
-//     });
-//   }
-//
-//   _.each(allIncidents, function(incident) {
-//     objectBuilder.buildIncident(incident, function(incidentObj) {
-//       // console.log(incidentObj);
-//       Incident.create(incidentObj).success(function(incident) {
-//         logger.info('Created ' + incident.event_id);
-//       });
-//     });
-//   });
-//
-// });
 
 // Incident.sync();
 
