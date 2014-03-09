@@ -31,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
     srcdb: DataTypes.STRING,
     added_to_fod: DataTypes.STRING,
     above_mapping_threshold: DataTypes.INTEGER,
-    irwinID: DataTypes.STRING
+    irwinID: DataTypes.STRING,
+    importJSON: DataTypes.TEXT
   }, {
     updatedAt: 'updated_at',
     createdAt: 'created_at'
